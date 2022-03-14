@@ -1,0 +1,14 @@
+{
+  "name": "12-express-web-framework",
+  "version": "1.0.0",
+  "description": "express tutorial",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "deepak dargade",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
