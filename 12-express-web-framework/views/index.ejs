@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <script src="/public/js/example.js"></script>
+</head>
+<body>
+
+    <h2>You searched for <%= data.userQuery %></h2>
+    <ul>
+        <% data.searchResults.forEach(result=>{ %>
+            <li><%= data.searchResults[0] %></li>
+        <% }); %>
+    </ul>
+    
+
+    <form method="post" id="form" action="/">
+        <h2><strong>Sign In</strong></h2>
+      
+        <p>
+            <label>Email</label><br>
+            <input type="email" name="email" required="">
+        </p>
+        <p>
+            <label>Password</label><br>
+            <input type="password" name="password">
+        </p>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script>
+          $(document).ready(()=>{
+              $("#form").submit((e)=> {
+                e.preventDefault();
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify($("#form").serializeArray()),
+                    success: (data)=>{
+                        console.log(data);
+                    }
+                });
+              });
+          });
+      </script>
+</body>
+</html>
